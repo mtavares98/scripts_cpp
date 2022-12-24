@@ -42,3 +42,11 @@ echo "" >> Makefile
 echo "re:	fclean all" >> Makefile
 echo "" >> Makefile
 echo '.PHONY:	all clean fclean re' >> Makefile
+
+# Change the program file
+
+cp -r ~/scripts_cpp/.vscode .
+
+REPLACE='"program": "${workspaceFolder}/'
+
+sed -i "s|$REPLACE|$REPLACE$NAME|g" .vscode/launch.json

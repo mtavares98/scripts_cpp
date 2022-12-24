@@ -16,3 +16,5 @@ do
 	echo "};" >> $i.hpp
 	echo "#endif" >> $i.hpp
 done
+
+/bin/bash ~/scripts_cpp/makefile_gen.sh $@
