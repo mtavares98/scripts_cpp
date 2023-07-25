@@ -50,3 +50,6 @@ cp -r ~/scripts_cpp/.vscode .
 REPLACE='"program": "${workspaceFolder}/'
 
 sed -i "s|$REPLACE|$REPLACE$NAME|g" .vscode/launch.json
+
+# Create .hpp and .cpp
+/bin/bash class_gen.sh

@@ -2,7 +2,7 @@
 
 for	i in "$@"
 do
-	echo "#ifndef ${i^^}" > $i.hpp
+	echo "#ifndef ${i^^}_HPP" > $i.hpp
 	echo "#define ${i^^}_HPP" >> $i.hpp
 	echo "" >> $i.hpp
 	echo "class $i" >> $i.hpp
@@ -17,4 +17,11 @@ do
 	echo "#endif" >> $i.hpp
 done
 
-/bin/bash ~/scripts_cpp/makefile_gen.sh $@
+for	i in "$@"
+do
+	echo "#include \"$@.hpp\"" > $i.cpp
+	echo "$i::$i(void) {}" >> $i.cpp
+	echo "$i::$i($i const &copy) {}" >> $i.cpp
+	echo "$i &$i::operator=($i const &copy) {}" >> $i.cpp
+	echo "$i::~$i(void) {}" >> $i.cpp
+done
