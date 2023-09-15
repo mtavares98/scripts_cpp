@@ -22,7 +22,7 @@ read NAME
 
 echo "" >> Makefile
 echo "NAME	=	$NAME" >> Makefile
-echo "CC	=	g++" >> Makefile
+echo "CC	=	c++" >> Makefile
 echo "CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -I. -g -fsanitize=address" >> Makefile
 echo "" >> Makefile
 
@@ -43,13 +43,5 @@ echo "re:	fclean all" >> Makefile
 echo "" >> Makefile
 echo '.PHONY:	all clean fclean re' >> Makefile
 
-# Change the program file
-
-cp -r ~/scripts_cpp/.vscode .
-
-REPLACE='"program": "${workspaceFolder}/'
-
-sed -i "s|$REPLACE|$REPLACE$NAME|g" .vscode/launch.json
-
 # Create .hpp and .cpp
-/bin/bash class_gen.sh
+/bin/bash /home/mtavares/scripts_cpp/class_gen.sh
