@@ -43,5 +43,8 @@ echo "re:	fclean all" >> Makefile
 echo "" >> Makefile
 echo '.PHONY:	all clean fclean re' >> Makefile
 
+
+~/.local/share/nvim/mason/bin/clang-format --style Google --dump-config > .clang-format
+bear -- make all
 # Create .hpp and .cpp
-/bin/bash /home/mtavares/scripts_cpp/class_gen.sh
+/bin/bash /home/mtavares/scripts_cpp/class_gen.sh $@
